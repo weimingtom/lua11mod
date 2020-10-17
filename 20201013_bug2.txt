@@ -1,0 +1,17 @@
+		private static void str_sub ()
+		{...
+			 //lua_pushstring (new CharPtr(s, start-1));
+			 lua_pushstring (s.add(start-1));
+			 
+solve:
+(1)	lua_pushstring (s.add(start-1));
+	
+(2)	and fix bug here:
+			public CharPtr(CharPtr ptr, int index)
+			{
+				this.chars = ptr.chars;
+add code 'ptr.index + ' before index--------->				this.index = ptr.index + index;
+			}
+			
+				
+	

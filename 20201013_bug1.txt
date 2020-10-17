@@ -1,0 +1,111 @@
+yy_n==67->42
+yy_len==1
+yy_state=153
+
+yy_n
+91->6
+
+
+--------------------------------
+
+solve: 
+yytext all assign modify to new CharPtr() assign
+
+
+debug:
+(1)
+static int stringinput (void)
+{
+ int ret;
+ st++;
+ ret = (*(st-1));
+ printf("stringinput >>> %d\n", ret);
+ if (ret == 34)
+ {
+	int a = 0;
+ }
+ return ret;
+}
+(2)
+	yy_newstate:\
+		printf("yy_state == %d, yy_n == %d\n", yy_state, yy_n);
+		
+
+------------------------
+
+			yy_len >>= 1;
+			yyval = ( yy_pv -= yy_len )[1];	/* $$ = $1 */
+			yy_state = yypgo[ yy_n = yyr1[ yy_n ] ] +
+				*( yy_ps -= yy_len ) + 1;
+			if ( yy_state >= YYLAST ||
+				yychk[ yy_state = yyact[ yy_state ] ] != -yy_n )
+			{
+				yy_state = yyact[ yypgo[ yy_n ] ];
+			}
+		}
+		
+		
+
+-----------------
+print("hello")
+yy_state == 0, yy_n == 0
+yy_state == 1, yy_n == 1
+stringinput >>> 112
+stringinput >>> 114
+stringinput >>> 105
+stringinput >>> 110
+stringinput >>> 116
+stringinput >>> 40
+yy_state == 2, yy_n == 16
+yy_state == 8, yy_n == 26
+yy_state == 23, yy_n == 23
+yy_state == 20, yy_n == 14
+stringinput >>> 34
+yy_state == 16, yy_n == 6
+
+
+csharp
+--------------------
+vc6:
+
+print("hello")
+yy_state == 0, yy_n == -858993460
+yy_state == 1, yy_n == 1
+stringinput >>> 112
+stringinput >>> 114
+stringinput >>> 105
+stringinput >>> 110
+stringinput >>> 116
+stringinput >>> 40
+yy_state == 2, yy_n == 16
+yy_state == 8, yy_n == 26
+yy_state == 23, yy_n == 23
+yy_state == 20, yy_n == 14
+stringinput >>> 34
+yy_state == 21, yy_n == 42
+yy_state == 46, yy_n == 43
+yy_state == 80, yy_n == 80
+stringinput >>> 104
+stringinput >>> 101
+stringinput >>> 108
+stringinput >>> 108
+stringinput >>> 111
+stringinput >>> 34
+stringinput >>> 41
+yy_state == 34, yy_n == 34
+yy_state == 73, yy_n == 3
+stringinput >>> 0
+yy_state == 112, yy_n == 5
+yy_state == 111, yy_n == 4
+yy_state == 128, yy_n == 128
+yy_state == 17, yy_n == 32
+yy_state == 12, yy_n == 27
+yy_state == 7, yy_n == 17
+stringinput >>> -52
+yy_state == 10, yy_n == 18
+yy_state == 1, yy_n == 1
+hello
+
+
+
+
